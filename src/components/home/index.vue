@@ -5,41 +5,33 @@
   left: 50px
   top: 50px
 
-ul
-  padding: 15px
-  margin: 9
-  list-style: none
-  background: #6c6669
-  color: #ffffff
-  border-right-width: 0
+  ul
+    padding: 15px
+    margin: 9
+    list-style: none
+    background: #6c6669
+    color: #ffffff
+    border-right-width: 0
 
-/*水平居中*/
-li
-  display: block
-  height: 30px
-  line-height: 30px
-  padding-left: 12px
-  cursor: pointer
-  font-size: 14px
-  position: relative
+  /*水平居中*/
+  li
+    display: block
+    height: 30px
+    line-height: 30px
+    padding-left: 12px
+    cursor: pointer
+    font-size: 14px
+    position: relative
+    &:active
+      background: #999395
 
-/*鼠标移动上去的背景色*/
-
-li.active
-  background: #999395
-
-/*js可以很好地调用类，一般效果css实现就好*/
-
-li span:hover
-  color: #c81623
-
-/*隐藏的类*/
+    span:hover
+      color: #c81623
 
 .none
   display: none
 
 /*二级菜单*/
-
 #sub
   width: 600px
   position: absolute
@@ -53,44 +45,40 @@ li span:hover
   padding: 10px
 
 
-.sub-content a
-  font-style: 12px
-  color: #666
-  text-decoration: none
+.sub-content
+  a
+    font-style: 12px
+    color: #666
+    text-decoration: none
 
+  dl
+    overflow: hidden
 
-.sub-content dd a
-  border-left: 1px solid #e0e0e0
-  padding: 0 1px
-  margin: 4px 0
+  dt
+    float: left
+    width: 70px
+    font-weight: bold
+    clear: left
+    position: relative
 
+    i
+      width: 4px
+      height: 14px
+      font: 400 9px/14px consolas
+      position: absolute
+      right: 5px
+      top: 5px
 
-.sub-content dl
-  overflow: hidden
+  dd
+    float: left
+    margin-left: 5px
+    border-top: 1px solid #eee
+    margin-bottom: 5px
 
-
-.sub-content dt
-  float: left
-  width: 70px
-  font-weight: bold
-  clear: left
-  position: relative
-
-
-.sub-content dd
-  float: left
-  margin-left: 5px
-  border-top: 1px solid #eee
-  margin-bottom: 5px
-
-
-.sub-content dt i
-  width: 4px
-  height: 14px
-  font: 400 9px/14px consolas
-  position: absolute
-  right: 5px
-  top: 5px
+    a
+      border-left: 1px solid #e0e0e0
+      padding: 0 1px
+      margin: 4px 0
 
 </style>
 
