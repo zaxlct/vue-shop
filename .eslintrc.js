@@ -29,5 +29,6 @@ module.exports = {
     'no-return-assign': 0,
     'camelcase': 0,
     'no-useless-computed-key': 0,
+    'no-unused-vars': 0, // 变量声明了是否必须使用
   }
 }
