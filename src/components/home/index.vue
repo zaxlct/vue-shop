@@ -307,9 +307,7 @@ export default class Home extends Vue {
     if (delay) {
       // 时间触发，设置一个缓冲期
       this.timer = setTimeout(_ => {
-        if (this.mouseInSub) {
-          return
-        }
+        if (this.mouseInSub) return
 
         removeClass(this.activeRow, 'active')
         addClass(this.activeMenu, 'none')
@@ -337,6 +335,11 @@ export default class Home extends Vue {
       addClass(this.activeMenu, 'none')
       this.activeMenu = null
     }
+    document.removeEventListener('mousemove', this.moveHandle)
+  }
+
+  destroyed() {
+    this.timer = null
     document.removeEventListener('mousemove', this.moveHandle)
   }
 }
