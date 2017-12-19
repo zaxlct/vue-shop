@@ -48,5 +48,30 @@ npm run build --report
 
 ### CSS
 - 请使用 sass
+- 元素选择器应该避免在 scoped 中出现
 
-## (Vue 风格指南)(https://cn.vuejs.org/v2/style-guide/)
+### (Vue 风格指南)(https://cn.vuejs.org/v2/style-guide/)
+- 组件命名：MyComponent.vue
+- 只应该拥有单个活跃实例的组件应该以 The 前缀命名，以示其唯一性
+- 应该优先通过 prop 和事件进行父子组件之间的通信，而不是 this.$parent 或改变 prop
+
+### 文件模板
+```vue
+<template lang="pug">
+
+</template>
+
+<script>
+import Vue from 'vue'
+import Component from 'vue-class-component'
+
+@Component
+export default class MyComponent extends Vue {
+
+}
+</script>
+
+<style lang="sass" scoped>
+
+</style>
+```
