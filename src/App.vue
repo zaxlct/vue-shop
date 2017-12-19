@@ -1,6 +1,6 @@
 <template lang="pug">
   #app
-    TheNav
+    TheHeader
     router-view.view_container
     TheFooter
 </template>
@@ -8,12 +8,12 @@
 <script>
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import TheNav from 'components/TheNav'
+import TheHeader from 'components/TheHeader'
 import TheFooter from 'components/TheFooter'
 
 @Component({
   components: {
-    TheNav,
+    TheHeader,
     TheFooter,
   },
 })
@@ -32,5 +32,4 @@ export default class App extends Vue {
 
   >.view_container
     flex: 1
-    background: #f6f6f6
 </style>
