@@ -1,7 +1,8 @@
 <style>
 .ivu-affix {
   position: fixed;
-  z-index: 10;
+  z-index: 99999;
+  box-shadow: 1px 1px 3px 1px rgba(0,0,0,.3);
 }
 </style>
 
