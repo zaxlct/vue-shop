@@ -8,9 +8,6 @@
   background: #fff
   overflow: hidden
 
-.container
-  height: inherit
-
 .header_guide
   display: flex
   height: 26px
@@ -38,7 +35,9 @@
 .header_inner
   background: #fff
   height: 65px
-  display: flex
+
+  >.container
+    display: flex
 
 .header_left
   flex: 1
@@ -106,8 +105,10 @@
         li.item.pointer #[i.i-like_fill] 客户服务
         li.item.pointer #[i.i-feedback_fill]常见问题
         li.item.pointer #[i.i-mobilephone_fill]App
-    Affix
-      .header_inner
+
+  Affix
+    .header_inner
+      .container
         .header_left
           router-link.logo(to="/"): img.img(src="https://placehold.it/200x50")
           .header_search
