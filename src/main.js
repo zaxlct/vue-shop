@@ -1,6 +1,9 @@
 import 'babel-polyfill'
 import Vue from 'vue'
 
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
+
 import App from './App'
 import router from './router'
 // import store from './store'
@@ -8,7 +11,6 @@ import router from './router'
 import 'common/js/globalVueConfig'
 
 // Vue.use(axiosConfig)
-
 import {
   Pagination,
   Dialog,
@@ -151,6 +153,8 @@ Vue.prototype.$prompt = MessageBox.prompt
 Vue.prototype.$notify = Notification
 Vue.prototype.$message = Message
 Vue.prototype.$ELEMENT = { size: 'medium' }
+
+Vue.use(VueAwesomeSwiper)
 
 Vue.config.productionTip = false
 
