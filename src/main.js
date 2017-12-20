@@ -1,5 +1,6 @@
 import 'babel-polyfill'
 import Vue from 'vue'
+
 import App from './App'
 import router from './router'
 // import store from './store'
@@ -149,7 +150,7 @@ Vue.prototype.$confirm = MessageBox.confirm
 Vue.prototype.$prompt = MessageBox.prompt
 Vue.prototype.$notify = Notification
 Vue.prototype.$message = Message
-Vue.prototype.$ELEMENT = { size: 'small' }
+Vue.prototype.$ELEMENT = { size: 'medium' }
 
 Vue.config.productionTip = false
 
