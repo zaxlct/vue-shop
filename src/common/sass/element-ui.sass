@@ -5,3 +5,29 @@ $--color-primary: $color
 $--font-path: '~element-ui/lib/theme-chalk/fonts'
 
 @import "~element-ui/packages/theme-chalk/src/index"
+
+
+// ======= TheHeader ============
+// 搜索商品的输入框 hack
+.TheHeader .header_search
+  .input .el-input__inner
+    border-top-right-radius: 0
+    border-bottom-right-radius: 0
+
+  .select .el-input .el-input__inner
+      border-left: none
+      background: #f2f2f2
+      border-radius: 0
+
+      &:focus
+        border-color: #dcdfe6
+
+.header_right-popover_content
+  text-align: center
+
+  .button
+    width: 180px
+    margin: auto
+    margin-bottom: 10px
+    display: block
+// ↑↑↑↑↑↑↑↑↑

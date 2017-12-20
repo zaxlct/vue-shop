@@ -18,7 +18,7 @@
   font-size: 11px
 
   >.guide_desc
-    padding-left: 30px
+    padding-left: 20px
     font-weight: 400
     font-size: 11px
 
@@ -36,16 +36,65 @@
         background: #eee
 
 .header_inner
+  background: #fff
   height: 65px
   display: flex
 
 .header_left
   flex: 1
   display: flex
+  align-items: center
+  font-size: 12px
 
+  >.logo
+    margin-right: 30px
+    margin-left: 20px
+    width: 200px
+    height: 45px
+
+    >.img
+      max-width: 200px
+      height: 100%
+
+  >.header_search
+    margin-right: 20px
+    width: calc(100% - 240px)
+    max-width: 800px
+    margin-right: 20px
+    display: flex
+
+    >.input
+      flex: 1
+
+    .select
+      width: 130px
+      background: #f2f2f2
+    .button
+      border-top-left-radius: 0
+      border-bottom-left-radius: 0
 
 .header_right
+  width: 175px
   display: flex
+  font-size: 12px
+
+  .icon
+    font-size: 24px
+
+  .login_box
+    padding: 10px
+    text-align: center
+    height: 65px
+
+    &:hover
+      background: #eee
+
+    >.text
+      font-weight: 400
+
+  .cart_box
+    @extend .login_box
+    padding: 10px 20px
 </style>
 
 <template lang="pug">
@@ -57,27 +106,56 @@
         li.item.pointer #[i.i-like_fill] 客户服务
         li.item.pointer #[i.i-feedback_fill]常见问题
         li.item.pointer #[i.i-mobilephone_fill]App
+    Affix
+      .header_inner
+        .header_left
+          router-link.logo(to="/"): img.img(src="https://placehold.it/200x50")
+          .header_search
+            el-input.input(placeholder='搜索商品/品牌' v-model='input5')
+            el-select.select(v-model='select' placeholder='请选择')
+              el-option(label='所有类别', value='0')
+              el-option(label='美容/化妆品', value='1')
+              el-option(label='母婴/儿童', value='2')
+              el-option(label='家具/家电', value='3')
+            el-button.button(icon='el-icon-search' type="primary")
+        .header_right
+          el-popover(
+            placement="bottom"
+            width="230"
+            trigger="hover"
+          )
+            .login_box.pointer(slot="reference")
+              i.icon.i-user
+              p.text 你好，请登录
+            .header_right-popover_content
+              el-button.button(type="primary" size="small") 你好，请登录
+              router-link(to="/").underline.main_color.fz12 注册账号
 
-    .header_inner
-      .header_left
-        router-link.logo(to="/"): img(src="https://placehold.it/200x200")
-        .header_search
-          el-input.input-with-select(placeholder='请输入内容', v-model='input5')
-            el-select(v-model='select', slot='prepend', placeholder='请选择')
-              el-option(label='餐厅名', value='1')
-              el-option(label='订单号', value='2')
-              el-option(label='用户电话', value='3')
-            el-button(slot='append', icon='el-icon-search')
-      .header_right
+          el-popover(
+            placement="bottom"
+            width="230"
+            trigger="hover"
+          )
+            .cart_box.pointer(slot="reference")
+              i.icon.i-cart
+              p.text 购物车
+
+            .header_right-popover_content
+              el-button.button(type="primary" size="small") #[i.i-cart_small] 查看购物车
 </template>
 
 <script>
 import Vue from 'vue'
 import Component from 'vue-class-component'
+import Affix from 'components/Affix'
 
-@Component
+@Component({
+  components: {
+    Affix,
+  },
+})
 export default class TheNav extends Vue {
   input5 = ''
-  select = ''
+  select = '0'
 }
 </script>
