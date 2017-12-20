@@ -39,6 +39,7 @@
   min-width: 600px
   box-shadow: 0 0 3px 1px rgba(0,0,0,.2)
   background: #fff
+  z-index: 3
 
 
 .sub-content
@@ -72,7 +73,6 @@
     margin-bottom: 5px
 
     a
-      border-left: 1px solid #e0e0e0
       padding: 0 1px
       margin: 4px 0
 
@@ -107,7 +107,6 @@
         dt
           a(href='#')
             | 电视
-            i &gt;
         dd
           a(href='#') 曲面电视
           a(href='#') 超薄电视
@@ -116,7 +115,6 @@
         dt
           a(href='#')
             | 空调
-            i &gt;
         dd
           a(href='#') 挂壁式空调
           a(href='#') 柜式空调
@@ -125,7 +123,6 @@
         dt
           a(href='#')
             | 洗衣机
-            i &gt;
         dd
           a(href='#') 滚筒式洗衣机
           a(href='#') 洗烘一体机
@@ -136,7 +133,6 @@
         dt
           a(href='#')
             | 手机通讯
-            i &gt;
         dd
           a(href='#') 手机
           a(href='#') 对讲机
@@ -145,7 +141,6 @@
         dt
           a(href='#')
             | 运营商
-            i &gt;
         dd
           a(href='#') 合约机
           a(href='#') 选号机
@@ -154,7 +149,6 @@
         dt
           a(href='#')
             | 手机配件
-            i &gt;
         dd
           a(href='#') 手机壳
           a(href='#') 贴膜
@@ -165,7 +159,6 @@
         dt
           a(href='#')
             | 电脑整机
-            i &gt;
         dd
           a(href='#') 笔记本
           a(href='#') 游戏本
@@ -173,7 +166,6 @@
         dt
           a(href='#')
             | 电脑配件
-            i &gt;
         dd
           a(href='#') 显示器
           a(href='#') CPU
@@ -181,7 +173,6 @@
         dt
           a(href='#')
             | 外设产品
-            i &gt;
         dd
           a(href='#') 鼠标
           a(href='#') 键盘
@@ -191,7 +182,6 @@
         dt
           a(href='#')
             | 厨具
-            i &gt;
         dd
           a(href='#') 烹饪锅具
           a(href='#') 刀剪配件
@@ -200,7 +190,6 @@
         dt
           a(href='#')
             | 家纺
-            i &gt;
         dd
           a(href='#') 床品套件
           a(href='#') 被子
@@ -209,7 +198,6 @@
         dt
           a(href='#')
             | 生活日用
-            i &gt;
         dd
           a(href='#') 收纳用品
           a(href='#') 雨伞雨具
@@ -220,7 +208,6 @@
         dt
           a(href='#')
             | 女装
-            i &gt;
         dd
           a(href='#') 商城同款
           a(href='#') 当季热卖
@@ -229,7 +216,6 @@
         dt
           a(href='#')
             | 男装
-            i &gt;
         dd
           a(href='#') 商城同款
           a(href='#') 当季热卖
@@ -240,7 +226,6 @@
         dt
           a(href='#')
             | 面部护肤
-            i &gt;
         dd
           a(href='#') 补水保湿
           a(href='#') 卸妆
