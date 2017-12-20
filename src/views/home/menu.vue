@@ -1,48 +1,44 @@
 <style lang="sass" scoped>
-.wrap
+.the_menu_container
   position: relative
-  width: 200px
-  left: 50px
-  top: 50px
+  width: 280px
+  background: #fff
+  height: inherit
 
-  ul
-    padding: 15px
-    margin: 9
-    list-style: none
-    background: #6c6669
-    color: #ffffff
-    border-right-width: 0
+  .category_list
+    padding-top: 10px
+    width: 100%
+    height: 100%
+    font-size: 12px
+    box-shadow: 0 0 3px 1px transparent
+    border-right: 1px solid #fff
 
-  /*水平居中*/
-  li
-    display: block
-    height: 30px
-    line-height: 30px
-    padding-left: 12px
+    &:hover
+      border-right: 1px solid #ccc
+      box-shadow: 0 0 3px 1px rgba(0,0,0,.2)
+
+  .category
+    padding: 0px 15px
+    height: 42x
+    line-height: 42px
     cursor: pointer
-    font-size: 14px
     position: relative
-    &:active
-      background: #999395
-
-    span:hover
-      color: #c81623
+    &:hover
+      background: #ffdce0
 
 .none
   display: none
 
 /*二级菜单*/
-#sub
-  width: 600px
+.category_sub
   position: absolute
-  border: 1px solid #f7f7f7
-  background: #f7f7f7
-  box-shadow: 2px 0 rgba(0, 0, 0, .3)
-  left: 200px
+  left: 280px
   top: 0
-  box-sizing: border-box
-  margin: 0px
-  padding: 10px
+  padding: 20px
+  height: 582px
+  min-width: 600px
+  box-shadow: 0 0 3px 1px rgba(0,0,0,.2)
+  background: #fff
 
 
 .sub-content
@@ -83,24 +79,24 @@
 </style>
 
 <template lang="pug">
-#test.wrap(
+.the_menu_container(
   @mouseenter="onMenuMouseenter"
   @mouseleave="onMenuMouseleave"
 )
-  ul
-    li(data-id='a' @mouseenter="onSubMenuMouseenter")
+  ul.category_list
+    li.category(data-id='a' @mouseenter="onSubMenuMouseenter")
       span 家用电器
-    li(data-id='b' @mouseenter="onSubMenuMouseenter")
+    li.category(data-id='b' @mouseenter="onSubMenuMouseenter")
       span 手机 / 运营商 / 数码
-    li(data-id='c' @mouseenter="onSubMenuMouseenter")
+    li.category(data-id='c' @mouseenter="onSubMenuMouseenter")
       span 电脑办公 / 办公
-    li(data-id='d' @mouseenter="onSubMenuMouseenter")
+    li.category(data-id='d' @mouseenter="onSubMenuMouseenter")
       span 家居 / 家具 / 家装 / 厨具
-    li(data-id='e' @mouseenter="onSubMenuMouseenter")
+    li.category(data-id='e' @mouseenter="onSubMenuMouseenter")
       span 男装 / 女装 / 童装 / 内衣
-    li(data-id='f' @mouseenter="onSubMenuMouseenter")
+    li.category(data-id='f' @mouseenter="onSubMenuMouseenter")
       span 美妆个护 / 宠物
-  #sub(
+  .category_sub(
     v-show="isShowSub"
     ref="sub"
     @mouseenter="mouseInSub = true"
@@ -260,10 +256,15 @@ import { addClass, removeClass, getData } from 'common/js/dom'
 
 const vector = new Vector()
 
-@Component
-export default class Home extends Vue {
+@Component({
+  computed: {
+    isShowSub() {
+      return !!this.activeRow && !!this.activeMenu
+    }
+  },
+})
+export default class Menu extends Vue {
   mouseInSub = false
-  isShowSub = false
   activeRow = null
   activeMenu = null
   mouseTrack = []
@@ -284,7 +285,6 @@ export default class Home extends Vue {
   }
 
   onMenuMouseenter(e) {
-    this.isShowSub = true
     document.addEventListener('mousemove', this.moveHandle)
   }
 
@@ -308,7 +308,7 @@ export default class Home extends Vue {
       // 时间触发，设置一个缓冲期
       this.timer = setTimeout(_ => {
         if (this.mouseInSub) return
-
+        if (!this.activeRow) return this._initData()
         removeClass(this.activeRow, 'active')
         addClass(this.activeMenu, 'none')
 
@@ -326,7 +326,6 @@ export default class Home extends Vue {
   }
 
   onMenuMouseleave() {
-    this.isShowSub = true
     if (this.activeRow) {
       removeClass(this.activeRow, 'active')
       this.activeRow = null
@@ -336,6 +335,14 @@ export default class Home extends Vue {
       this.activeMenu = null
     }
     document.removeEventListener('mousemove', this.moveHandle)
+  }
+
+  _initData() {
+    this.mouseInSub = false
+    this.activeRow = null
+    this.activeMenu = null
+    this.mouseTrack = []
+    this.timer = null
   }
 
   destroyed() {
