@@ -39,7 +39,7 @@
 // ----- text------
 .pointer
   cursor: pointer
-.u_line
+.underline
   text-decoration: underline
 .tc
   text-align: center !important
@@ -66,9 +66,9 @@
 
 // ----color------
 .main_color
-  color: #324157 !important
+  color: $color !important
 .main_bg
-  color: #324157 !important
+  color: $color  !important
 
 .black
   color: #000 !important
@@ -76,7 +76,11 @@
   background: #fff !important
 
 
-// ----margin padding---
+//----- font-size
+@for $i from 0 through 40
+  .fz#{12 + $i}
+    font-size: 12px + $i !important
+
 
 //--- margin & padding
 @for $i from 1 through 6
