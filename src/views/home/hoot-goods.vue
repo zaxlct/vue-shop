@@ -52,6 +52,7 @@ $img_height: calc((1600px - 60px) / 10)
   overflow: initial
 
 .card
+  padding: 2px
   display: block
   font-size: 12px
   text-align: center
