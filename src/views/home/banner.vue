@@ -36,7 +36,7 @@ h3
 .the_banner_container
   el-carousel(height="582px")
     el-carousel-item(v-for="item in 4" :key="item")
-      h3 {{ item }}
+      h3
 </template>
 
 <script>
