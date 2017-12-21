@@ -114,7 +114,7 @@ import GoodsCard from 'components/GoodsCard'
     GoodsCard,
   },
 })
-export default class HotGoods extends Vue {
+export default class GoodsSwiper extends Vue {
   activeIndex = 0
   swiperOption = {
     slidesPerView: 10, // 设置slider容器能够同时显示的slides数量
