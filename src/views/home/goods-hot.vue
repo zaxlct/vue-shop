@@ -5,9 +5,9 @@
 
 .article_box
   position: relative
+  padding-bottom: 90px
   margin-right: 10px
   flex: 1
-  height: 650px
   background: #fff
 
   &:hover
