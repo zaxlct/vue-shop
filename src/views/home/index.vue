@@ -16,7 +16,7 @@
   .the_header.container
     Menu.the_menu_container
     Banner.the_banner_container
-  HotGoods
+  GoodsSwiper
 </template>
 
 <script>
@@ -24,13 +24,13 @@ import Vue from 'vue'
 import Component from 'vue-class-component'
 import Menu from './menu'
 import Banner from './banner'
-import HotGoods from './hoot-goods'
+import GoodsSwiper from './goods-swiper'
 
 @Component({
   components: {
     Menu,
     Banner,
-    HotGoods,
+    GoodsSwiper,
   },
 })
 export default class Home extends Vue {
