@@ -1,14 +1,4 @@
 <style lang="sass" scoped>
-@import "~common/sass/mixins"
-
-$img_height: calc((1600px - 60px) / 10)
-
-@media (max-width: 1600px)
-  $img_height: calc((100vw - 60px) / 10)
-
-@media (max-width: 1100px)
-  $img_height: calc((1010px - 60px) / 10)
-
 .hot_goods_container
   position: relative
   margin-top: 20px
@@ -46,24 +36,12 @@ $img_height: calc((1600px - 60px) / 10)
     right: 0
     border-radius: 3px 0 0 3px
 
-.card_swiper
+.goods_swiper
   margin-top: 40px
   // swiper 父组件原本设置的为 overflow: hidden，但是把 rank_number 隐藏了，所以把 overflow: hidden 设置给上面的 hot_goods_container
   overflow: initial
 
-.card
-  padding: 2px
-  display: block
-  font-size: 12px
-  text-align: center
-
-  &:hover
-    >.goods_img
-      opacity: .8
-    >.goods_name
-      color: #666
-      text-decoration: underline
-
+.goods_card
   >.rank_number
     position: absolute
     height: 24px
@@ -89,32 +67,18 @@ $img_height: calc((1600px - 60px) / 10)
     background: #999
     border: 1px solid #999
 
-  >.goods_img
-    height: $img_height
-    width: auto
-
-  >.goods_name
-    +text-multiLine-ellipsis(2, 20px)
-    text-align: left
-    margin: .7rem 0 5px
-    font-weight: 400
-
-  >.price
-    font-weight: bold
-
 .recent_goods_container
   margin-top: 20px
   padding: 20px 30px
   height: 318px
   background: #fff
 
-  >.card_list
+  >.goods_list
     margin-top: 20px
     display: flex
     justify-content: space-between
 
-    >.card
-      // width: $img_height
+    >.goods_card
       flex: 1
 </style>
 
@@ -124,33 +88,30 @@ section
     h2.tc 人气商品排行榜
     button.icon_btn.left(@click="slideTo('slidePrev')" :disabled="activeIndex === 0"): i.i-return
     button.icon_btn.right(@click="slideTo('slideNext')" :disabled="activeIndex === 10"): i.i-enter
-    swiper.card_swiper(:options="swiperOption" ref="mySwiper")
+    swiper.goods_swiper(:options="swiperOption" ref="mySwiper")
       swiper-slide(v-for="n in 20" :key="n")
-        router-link.card(:to="'1'")
+        GoodsCard
           .rank_number(:class="n < 4 ? 'rank_number_first' : (n > 10 ? 'rank_number_last' : '')") {{n}}
-          img.goods_img(src="https://placehold.it/130x180")
-          h4.goods_name Utena佑天兰黄金果冻面膜 玻尿酸 33g×3片,Utena佑天兰黄金果冻面膜 玻尿酸 33g×3片
-          .price.main_color 112.12 元
 
   .container.recent_goods_container
     h2.tc 最近浏览过的商品
-    .card_list
-      router-link.card(v-for="n in 10" :key="n" :to="'1'")
-        img.goods_img(src="https://placehold.it/130x180")
-        h4.goods_name Utena佑天兰黄金果冻面膜 玻尿酸 33g×3片,Utena佑天兰黄金果冻面膜 玻尿酸 33g×3片
-        .price.main_color 112.12 元
-
+    .goods_list
+      GoodsCard.goods_card(v-for="n in 10" :key="n" :to="'1'")
 </template>
 
 <script>
 import Vue from 'vue'
 import Component from 'vue-class-component'
+import GoodsCard from 'components/GoodsCard'
 
 @Component({
   computed: {
     swiper() {
       return this.$refs.mySwiper.swiper
     },
+  },
+  components: {
+    GoodsCard,
   },
 })
 export default class HotGoods extends Vue {
