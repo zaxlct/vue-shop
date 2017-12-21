@@ -56,6 +56,13 @@ $img_height: calc((1600px - 60px) / 10)
   font-size: 12px
   text-align: center
 
+  &:hover
+    >.goods_img
+      opacity: .8
+    >.goods_name
+      color: #666
+      text-decoration: underline
+
   >.rank_number
     position: absolute
     height: 24px
@@ -93,17 +100,41 @@ $img_height: calc((1600px - 60px) / 10)
 
   >.price
     font-weight: bold
+
+.recent_goods_container
+  margin-top: 20px
+  padding: 20px 30px
+  height: 318px
+  background: #fff
+
+  >.card_list
+    margin-top: 20px
+    display: flex
+    justify-content: space-between
+
+    >.card
+      // width: $img_height
+      flex: 1
 </style>
 
 <template lang="pug">
-.container.hot_goods_container
-  h2.tc 人气商品排行榜
-  button.icon_btn.left(@click="slideTo('slidePrev')" :disabled="activeIndex === 0"): i.i-return
-  button.icon_btn.right(@click="slideTo('slideNext')" :disabled="activeIndex === 10"): i.i-enter
-  swiper.card_swiper(:options="swiperOption" ref="mySwiper")
-    swiper-slide(v-for="n in 20" :key="n")
-      router-link.card(:to="'1'")
-        .rank_number(:class="n < 4 ? 'rank_number_first' : (n > 10 ? 'rank_number_last' : '')") {{n}}
+section
+  .container.hot_goods_container
+    h2.tc 人气商品排行榜
+    button.icon_btn.left(@click="slideTo('slidePrev')" :disabled="activeIndex === 0"): i.i-return
+    button.icon_btn.right(@click="slideTo('slideNext')" :disabled="activeIndex === 10"): i.i-enter
+    swiper.card_swiper(:options="swiperOption" ref="mySwiper")
+      swiper-slide(v-for="n in 20" :key="n")
+        router-link.card(:to="'1'")
+          .rank_number(:class="n < 4 ? 'rank_number_first' : (n > 10 ? 'rank_number_last' : '')") {{n}}
+          img.goods_img(src="https://placehold.it/130x180")
+          h4.goods_name Utena佑天兰黄金果冻面膜 玻尿酸 33g×3片,Utena佑天兰黄金果冻面膜 玻尿酸 33g×3片
+          .price.main_color 112.12 元
+
+  .container.recent_goods_container
+    h2.tc 最近浏览过的商品
+    .card_list
+      router-link.card(v-for="n in 10" :key="n" :to="'1'")
         img.goods_img(src="https://placehold.it/130x180")
         h4.goods_name Utena佑天兰黄金果冻面膜 玻尿酸 33g×3片,Utena佑天兰黄金果冻面膜 玻尿酸 33g×3片
         .price.main_color 112.12 元
