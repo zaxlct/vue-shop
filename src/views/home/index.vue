@@ -18,6 +18,7 @@
     Banner.the_banner_container
   GoodsSwiper
   GoodsHot
+  GoodsSpecial
 </template>
 
 <script>
@@ -27,6 +28,7 @@ import Menu from './menu'
 import Banner from './banner'
 import GoodsSwiper from './goods-swiper'
 import GoodsHot from './goods-hot'
+import GoodsSpecial from './goods-special'
 
 @Component({
   components: {
@@ -34,6 +36,7 @@ import GoodsHot from './goods-hot'
     Banner,
     GoodsSwiper,
     GoodsHot,
+    GoodsSpecial,
   },
 })
 export default class Home extends Vue {
