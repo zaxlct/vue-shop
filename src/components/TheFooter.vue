@@ -97,7 +97,6 @@
       width: auto
       height: 42px
 
-
   .focuson
     >.itm
       position: relative
@@ -124,7 +123,6 @@
         z-index: 10
 
 </style>
-
 
 <template lang="pug">
 footer.footer_container

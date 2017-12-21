@@ -69,7 +69,6 @@
   dd
     float: left
     margin-left: 5px
-    border-top: 1px solid #eee
     margin-bottom: 5px
 
     a
