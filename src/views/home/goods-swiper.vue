@@ -3,7 +3,6 @@
   position: relative
   margin-top: 20px
   padding: 20px 30px
-  height: 340px
   background: #fff
   overflow: hidden
 
@@ -70,7 +69,6 @@
 .recent_goods_container
   margin-top: 20px
   padding: 20px 30px
-  height: 318px
   background: #fff
 
   >.goods_list
