@@ -64,10 +64,15 @@
     height: 100%
     background: #56b5fd
 
-    .img
+    &:hover
+      >.img,
+      >.img_desc
+        opacity: .8
+
+    >.img
       width: 100%
 
-    .img_desc
+    >.img_desc
       flex: 1
       display: flex
       color: #fff
@@ -89,7 +94,7 @@
 
 <template lang="pug">
 section
-  .special_goods_container.container(v-for="n in 4" :key="4")
+  .special_goods_container.container(v-for="n in 4" :key="n")
     .category_head
       .category_box
         h3.h3: router-link(to="2").category_title 医学品 #[i.icon.i-enter]
