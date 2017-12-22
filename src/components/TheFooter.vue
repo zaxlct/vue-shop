@@ -7,7 +7,7 @@
   font-size: 12px
 
   >.content
-    width: 1196px
+    width: 1080px
     margin: auto
 
   >.footer_aside
@@ -68,6 +68,7 @@
 
     &:first-child
       border: none
+      padding-left: 0
 
     &:last-child
       border: none
@@ -118,7 +119,7 @@
       >.m-notice
         position: absolute
         left: -44px
-        top: 42px
+        top: 20px
         display: none
         z-index: 10
 
