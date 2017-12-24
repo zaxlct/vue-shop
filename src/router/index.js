@@ -4,13 +4,22 @@ import NProgress from 'nprogress' // Progress 进度条
 import 'nprogress/nprogress.css'// Progress 进度条样式
 Vue.use(Router)
 
+const Index = () => import('views/index')
 const Home = () => import('views/home/index')
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Index',
+    component: Index,
+    children: [
+      {
+        path: '/home',
+        name: 'Home',
+        component: Home,
+        alias: '/',
+      },
+    ],
   },
   // 404 跳转到首页
   // { path: '*', component: Home }

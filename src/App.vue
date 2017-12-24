@@ -1,6 +1,5 @@
 <template lang="pug">
   #app
-    TheHeader
     router-view.view_container
     TheFooter
 </template>
@@ -8,12 +7,10 @@
 <script>
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import TheHeader from 'components/TheHeader'
 import TheFooter from 'components/TheFooter'
 
 @Component({
   components: {
-    TheHeader,
     TheFooter,
   },
 })
