@@ -6,6 +6,7 @@ Vue.use(Router)
 
 const Index = () => import('views/index')
 const Home = () => import('views/home/index')
+const Login = () => import('views/entry/login')
 
 const routes = [
   {
@@ -20,6 +21,11 @@ const routes = [
         alias: '/',
       },
     ],
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login,
   },
   // 404 跳转到首页
   // { path: '*', component: Home }
