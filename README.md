@@ -43,28 +43,28 @@ yarn
 - [element-ui 2.x](http://element-cn.eleme.io/#/zh-CN)
 - babel-polyfill
 
-## 模板
-- sass
+## 模板
+- sass
 - pug
 
-## 代码规范
-- 两个空格为一个 Tab
+## 代码规范
+- 两个空格为一个 Tab
 
 ### JS
 - Standard Style
 - 不写分号
 - 一行开头是括号或者方括号的时候加上分号就可以了，其他时候全部不需要
-- 用单引号
+- 用单引号
 - template 里用双引号
-- 请设置编辑器，保存的时候自动删除多余空格
+- 请设置编辑器，保存的时候自动删除多余空格
 - 优先使用 ES6/ES7 语法
 
 ### HTML
-- 属性用双引号
+- 属性用双引号
 - 请使用 pug
 
 ### CSS
-- 请使用 sass
+- 请使用 sass
 - 元素选择器应该避免在 scoped 中出现
 
 ### (Vue 风格指南)(https://cn.vuejs.org/v2/style-guide/)
