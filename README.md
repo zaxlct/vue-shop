@@ -1,6 +1,6 @@
-# huofanr
+# vue-shop
 
-> huofanr pc
+>  使用 vue + sass + vue-component-class 模仿[DOKODEMO](https://dokodemo.world/zh-Hans/) 首页的项目。
 
 ## Build Setup
 **node 版本需要大于 8.0**
